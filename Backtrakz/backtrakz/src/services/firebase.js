@@ -2,17 +2,16 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
 
-// Replace with your Firebase config
+// Config now reads from environment variables
 const firebaseConfig = {
-  apiKey: "AIzaSyBKlkfBqYONPO1N-mvi6S-VAxbOAiXncvo",
-  authDomain: "fir-realtimeapp-3a162.firebaseapp.com",
-  databaseURL: "https://fir-realtimeapp-3a162-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "fir-realtimeapp-3a162",
-  storageBucket: "fir-realtimeapp-3a162.firebasestorage.app",
-  messagingSenderId: "823562435061",
-  appId: "1:823562435061:android:dbcb6ead649525e13208bc",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
-
 
 const app = initializeApp(firebaseConfig);
 export const db = getDatabase(app);
