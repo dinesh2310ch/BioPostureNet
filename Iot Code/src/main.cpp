@@ -6,16 +6,17 @@
 #include <addons/TokenHelper.h>
 #include <addons/RTDBHelper.h>
 #include <time.h>
+#include "secrets.h" 
 
 // ===== WiFi credentials =====
-const char* WIFI_SSID = "vivo Y27";
-const char* WIFI_PASSWORD = "mkmkmkmk";
+const char* WIFI_SSID = "";
+const char* WIFI_PASSWORD = "";
 
 // ===== Firebase credentials =====
-#define API_KEY "AIzaSyBKlkfBqYONPO1N-mvi6S-VAxbOAiXncvo"
-#define DATABASE_URL "https://fir-realtimeapp-3a162-default-rtdb.asia-southeast1.firebasedatabase.app/"
-#define USER_EMAIL "pieceone2u@gmail.com"
-#define USER_PASSWORD "12345@2310"
+// #define API_KEY ""
+// #define DATABASE_URL ""
+// #define USER_EMAIL  ""
+// #define USER_PASSWORD "" 
 
 // Firebase objects
 FirebaseData fbdo;
