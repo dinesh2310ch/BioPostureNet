@@ -1,10 +1,3 @@
-Of course. Based on our entire conversation and all the details of your **BioPostureNet** project, here is a comprehensive `README.md` file.
-
-You can copy this entire text and save it in a file named `README.md` in the root of your `BioPostureNet-Project` folder.
-
------
-
-```markdown
 # BioPostureNet - IoT-Based Smart Posture Monitoring System
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
@@ -32,24 +25,20 @@ The system architecture is composed of two main parts that work together seamles
 
 ## 🛠️ Technology Stack
 
-| Component         | Technology / Hardware                                  |
-| :---------------- | :----------------------------------------------------- |
-| **IoT Device** | C++ / Arduino Core, ESP8266, MPU6050, VL53L0X           |
-| **Mobile App** | React, Capacitor, JavaScript, HTML/CSS                 |
-| **Database** | Firebase Realtime Database                             |
-| **Authentication**| Firebase Authentication                                |
+| Component         | Technology / Hardware                               |
+| :---------------- | :-------------------------------------------------- |
+| **IoT Device**    | C++ / Arduino Core, ESP8266, MPU6050, VL53L0X       |
+| **Mobile App**    | React, Capacitor, JavaScript, HTML/CSS              |
+| **Database**      | Firebase Realtime Database                          |
+| **Authentication**| Firebase Authentication                             |
 
 ## 📂 Repository Structure
 
 This is a monorepo containing the code for both the IoT device and the mobile application.
 
-```
-
 BioPostureNet-Project/
 ├── app/          \# Source code for the React + Capacitor mobile app
 └── iot/          \# Source code for the ESP8266 firmware (Arduino)
-
-````
 
 ## 🚀 Getting Started
 
@@ -62,11 +51,11 @@ BioPostureNet-Project/
 ### 1. IoT Device Setup
 
 1.  Navigate to the `iot` directory:
-    ```bash
+
     cd iot
-    ```
+
 2.  Create a `secrets.h` file in the `iot/` directory. You can copy `secrets.h.example` to get started.
-    ```cpp
+
     // secrets.h
     #define WIFI_SSID "YOUR_WIFI_SSID"
     #define WIFI_PASSWORD "YOUR_WIFI_PASSWORD"
@@ -74,15 +63,15 @@ BioPostureNet-Project/
     #define DATABASE_URL "YOUR_FIREBASE_DATABASE_URL"
     #define USER_EMAIL "YOUR_FIREBASE_AUTH_EMAIL"
     #define USER_PASSWORD "YOUR_FIREBASE_AUTH_PASSWORD"
-    ```
+
 3.  Open the `.ino` file in the Arduino IDE, install the required libraries (e.g., Adafruit MPU6050, Firebase ESP8266 Client), and flash the firmware to your ESP8266.
 
 ### 2. Mobile App Setup
 
 1.  Navigate to the `app` directory:
-    ```bash
+
     cd app
-    ```
+
 2.  Create a `.env` file in the `app/` directory by copying the example.
     ```env
     # .env
@@ -94,24 +83,24 @@ BioPostureNet-Project/
     REACT_APP_FIREBASE_STORAGE_BUCKET="..."
     REACT_APP_FIREBASE_MESSAGING_SENDER_ID="..."
     REACT_APP_FIREBASE_APP_ID="..."
-    ```
+
 3.  Install the required dependencies:
-    ```bash
+
     npm install
-    ```
+
 4.  Run the app in your browser for testing:
-    ```bash
+
     npm start
-    ```
+
 5.  To build and run on a mobile device, use the Capacitor CLI:
-    ```bash
+
     # Sync your web code with the native platforms
     npx cap sync
 
     # Open the native IDE (Android Studio or Xcode)
     npx cap open android
     npx cap open ios
-    ```
+
 
 ## 📱 App Screenshots
 <img width="1200" height="630" alt="kl1" src="https://github.com/user-attachments/assets/0a1aa708-c56d-4126-b1fd-45e420fbd695" />
@@ -129,4 +118,4 @@ BioPostureNet-Project/
 ## 📄 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-````
+
