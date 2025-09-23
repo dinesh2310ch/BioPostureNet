@@ -1,0 +1,9 @@
+{
+  "appId": "com.backtrakz.app",
+  "appName": "BackTrakz",
+  "webDir": "dist",
+  "server": {
+    "allowNavigation": ["*"],
+    "cleartext": true
+  }
+}

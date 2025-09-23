@@ -1,0 +1,139 @@
+# from project root
+npm run build
+npx cap copy
+npx cap sync   # (only if plugins changed)
+cd android
+.\gradlew assembleDebug
+adb install -r app\build\outputs\apk\debug\app-debug.apk
+cd ..
+
+
+
+✅ I carefully reviewed **all your files together**, and everything looks well-structured and should work correctly in your React + Capacitor mobile app.
+### ✅ Summary of Flow (How It Works)
+
+| Step                                                                                                       | Behavior |
+| ---------------------------------------------------------------------------------------------------------- | -------- |
+| 1️⃣ App starts → Splash Screen shown for 3s                                                                |          |
+| 2️⃣ Splash checks Capacitor Storage for `loggedInUser` key                                                 |          |
+| → Found → Navigate to `/home` with `{ username }`                                                          |          |
+| → Not found → Navigate to `/login`                                                                         |          |
+| 3️⃣ On Login: Successful login → Store `{ username }` in Capacitor Storage and go to `/home`               |          |
+| 4️⃣ On Signup: Create user, then go to `/home` (doesn’t store login info, but works)                       |          |
+| 5️⃣ On Home: Show username + Logout button → On logout, remove `loggedInUser` key and navigate to `/login` |          |
+
+---
+
+### ✅ Small Suggested Improvements (Optional, but Recommended)
+
+#### ⚡ In Signup: Automatically store login info after signup (Optional)
+
+Otherwise, after signup, when the user lands on Home and closes the app, they’ll get sent back to login.
+
+If you want auto-login after signup, modify `handleSignup` in `Signup.jsx`:
+
+```js
+await signupUser(name, username, password);
+
+// ✅ Save login info to Capacitor Storage
+await Storage.set({
+  key: "loggedInUser",
+  value: JSON.stringify({ username }),
+});
+
+navigate("/home", { state: { username } });
+```
+
+---
+
+### ✅ Final Assessment
+
+✔ All file logic looks correct.
+✔ Persistent login works via `Storage.get` in `Splash.jsx`.
+✔ Login correctly sets `Storage.set`.
+✔ Logout correctly clears storage and navigates.
+
+---
+
+🚀 Your app now has a proper mobile-like session behavior:
+
+* User stays logged in until manual logout.
+
+---
+
+👉 Do you want me to bundle this into a clean service layer next (for reusable session management)?
+
+
+
+root
+├── users
+│   └── 1757217689830-15027
+│       ├── id: "1757217689830-15027"
+│       ├── name: "Dinesh"
+│       ├── password: "1234"
+│       └── username: "dinesh"
+
+root
+├── sensorStatus
+│   └── dinesh
+│       ├── sessionTime: 45
+│       ├── status: "off"
+│       └── username: "dinesh"
+
+root
+├── sensor
+│   └── dinesh
+│       ├── lastUpdate: "2025-09-15T19:23:41.610Z"
+│       └── status: "off"
+
+root
+├── posture
+│   └── dinesh
+│       └── -OZd5sQg3vxrUHS4rp1p
+│           ├── distance: 4
+│           ├── pitch: -6.43552
+│           ├── posture: "good"
+│           ├── roll: -69.13602
+│           └── timestamp: "09-08 17:04:53"
+
+root
+├── notifications
+│   └── dinesh
+│       └── -OZd64DFxrYcJhinfdth
+│           ├── message: "⚠️ Bad posture detected! Please adjust your position."
+│           ├── read: true
+│           └── timestamp: "09-08 17:05:45"
+
+root
+├── loginchecking
+│   └── dinesh
+│       ├── loginTime: 1757964629282
+│       └── username: "dinesh"
+
+root
+├── history
+│   └── dinesh
+│       └── -OZd65DGwQCKTVltDceK
+│           ├── averageDistance: 11.29167
+│           ├── averagePitch: -5.45846
+│           ├── averageRoll: -47.96127
+│           ├── badCount: 11
+│           ├── durationSeconds: 59
+│           ├── goodCount: 13
+│           ├── moderateCount: 0
+│           └── sessionEndTime: "2025-09-08T17:05:49Z"
+
+root
+├── calibrationRequest
+│   └── dinesh
+│       ├── request: false
+│       └── username: "dinesh"
+
+root
+├── calibration
+│   └── dinesh
+│       ├── distance: 6
+│       ├── pitch: -0.51894
+│       ├── posture: "good"
+│       ├── roll: 1.94052
+│       └── timestamp: "00-00 00:00:00"

@@ -1,0 +1,7 @@
+Users (Collection / Table)
+│
+├── <Document ID 1>
+│   ├── username: "user1"
+│   ├── name: "John Doe"
+│   ├── password: "********"
+│   └── createdAt: Timestamp
