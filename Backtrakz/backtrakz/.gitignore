@@ -17,7 +17,7 @@ dist-ssr
 # Local Env Files
 *.local
 /.env
-src/services/.env
+src/.env
 
 # Editor directories and files
 .vscode/*
